@@ -1,0 +1,14 @@
+set daemon  10
+set log syslog
+
+set httpd port 2812 and
+    use address localhost
+    allow localhost
+    allow admin:monit
+
+check process nginx with pidfile /var/run/nginx.pid
+    start program = "/usr/sbin/nginx"
+
+check process cron with pidfile /var/run/crond.pid
+    start program = "/usr/sbin/cron"
+
