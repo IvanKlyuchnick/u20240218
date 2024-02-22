@@ -13,7 +13,7 @@ if ($#ARGV == 0) {
 		if ($row->[1]) {
 			if (-d "/etc/letsencrypt/live/$row->[0]") {
  			} else {
-				print "/usr/bin/certbot certonly -d $row->[0] -d www\.$row->[0]\n";
+				print "/usr/bin/certbot certonly --webroot --webroot-path /var/www/html -m ivan.klyuchnick\@gmail.com --agree-tos --no-eff-email --non-interactive -d $row->[0] -d www\.$row->[0]\n";
 			}
 		}
         }
